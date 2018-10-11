@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="message" class="com.demo.spring.Message">
+		<!-- <constructor-arg value="Lunch Break" />
+		<constructor-arg value="Delayed by 10 mins" /> -->
+		<property name="body" value="Lunch Break"/>
+		<property name="header" value="Delayed by 10 mins"></property>
+	</bean>
+
+	<bean id="mail" class="com.demo.spring.Mail" autowire="byType">
+		<property name="fromAddress" value="trainer" />
+		<property name="toAddress" value="all" />
+		<!-- <property name="message" ref="msg" /> -->
+	</bean>
+
+</beans>
