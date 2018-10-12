@@ -4,6 +4,8 @@ import java.awt.PageAttributes.MediaType;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.ServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +22,9 @@ public class EmpController {
 
 	@Autowired
 	private HrService hr;
+	
+	@Autowired
+	ServletRequest re;
 
 	@RequestMapping(path = "/empfind/{id}", method = RequestMethod.GET, produces = "application/json")
 	public Emp findEmpById(@PathVariable("id") int id) {
@@ -33,6 +38,8 @@ public class EmpController {
 
 	@RequestMapping(path = "emp/list", method = RequestMethod.GET, produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	public List<Emp> findAll() {
+		
+		System.out.println("port::::::::::::::::::::::::"+re.getServerPort());
 		return hr.getAll();
 
 	}

@@ -21,10 +21,21 @@ public class Emp {
 	
 	@Column(name="SALARY")
 	private double salary;
+	
+	private int port;
+
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
+	}
 
 	@Override
 	public String toString() {
-		return "Emp [empId=" + empId + ", name=" + name + ", city=" + city + ", salary=" + salary + "]";
+		return "Emp [empId=" + empId + ", name=" + name + ", city=" + city + ", salary=" + salary + ", port=" + port
+				+ "]";
 	}
 
 	public Emp() {
